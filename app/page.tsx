@@ -33,7 +33,8 @@ export default function Portfolio() {
       description:
         "Aplicación web para gestionar tareas con funcionalidad de calendario, creación de tareas y visualización integrada. Tecnologías: Next.js, Tailwind CSS, shadcn.",
       date: "jueves, 31 de Octubre de 2024",
-      image: "https://placehold.co/600x400?text=Gestion+de+Tareas",
+      // image: "https://placehold.co/600x400?text=Gestion+de+Tareas",
+      image: "/gestion-de-tareas/uno.png",
     },
     {
       title: "Sitio Web de Portafolio",
@@ -77,11 +78,13 @@ export default function Portfolio() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col ${modoOscuro ? "dark" : ""} mx-40`}
+      className={`min-h-screen flex flex-col ${
+        modoOscuro ? "dark" : ""
+      }  lg:mx-40`}
     >
       <header className="sticky top-0 z-10 bg-background border-b">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">John Doe</h1>
+          <h1 className="text-2xl font-bold">Di corato Juan</h1>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" onClick={alternarModoOscuro}>
               {modoOscuro ? (
@@ -99,9 +102,9 @@ export default function Portfolio() {
         <section className="mb-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <Image
-              width={300}
-              height={300}
-              src="https://placehold.co/300x300?text=John+Doe"
+              width={800}
+              height={800}
+              src="/avatares/avatar-he.webp"
               alt="John Doe"
               className="rounded-full w-64 h-64 object-cover"
             />
@@ -143,11 +146,11 @@ export default function Portfolio() {
                   </CardHeader>
                   <CardContent>
                     <Image
-                      width={300}
-                      height={300}
+                      width={1904}
+                      height={235}
                       src={proyecto.image}
                       alt={proyecto.title}
-                      className="w-full h-48 object-cover rounded-md mb-4"
+                      className="object-cover rounded-sm mb-4"
                     />
                     <p>{proyecto.description}</p>
                   </CardContent>
@@ -242,7 +245,7 @@ export default function Portfolio() {
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full p-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full p-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary bg-card"
                     placeholder="Tu mensaje aquí..."
                   ></textarea>
                 </div>
@@ -257,21 +260,21 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 flex flex-col items-center space-y-2">
           <div className="flex space-x-4">
             <Link href="https://github.com/tuusuario" aria-label="GitHub">
-              <FaGithub className="w-6 h-6" />
+              <FaGithub className="w-6 h-6 text-zinc-500 hover:text-slate-400" />
             </Link>
             <Link
               href="https://linkedin.com/in/tuusuario"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="w-6 h-6" />
+              <FaLinkedin className="w-6 h-6 text-zinc-500 hover:text-slate-400" />
             </Link>
             <Link href="https://twitter.com/tuusuario" aria-label="Twitter">
-              <FaTwitter className="w-6 h-6" />
+              <FaTwitter className="w-6 h-6 text-zinc-500 hover:text-slate-400" />
             </Link>
           </div>
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} John Doe. Todos los derechos
-            reservados.
+            Sitio creado con <span className="text-blue-400/90">Next.js </span>
+            por djp. Octubre de {new Date().getFullYear()}
           </p>
         </div>
       </footer>
