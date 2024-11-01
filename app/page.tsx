@@ -1,100 +1,279 @@
+"use client";
+
+import { useState } from "react";
+import { Moon, Sun, Mail, MapPin, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Timeline, TimelineItem } from "@/components/timeline";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+// Solución para iconos de GitHub, LinkedIn y Twitter
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+
+export default function Portfolio() {
+  const [modoOscuro, setModoOscuro] = useState(false);
+
+  const alternarModoOscuro = () => {
+    setModoOscuro(!modoOscuro);
+    document.documentElement.classList.toggle("dark");
+  };
+
+  const proyectos = [
+    {
+      title: "Aplicación web de gestión de tareas",
+      description:
+        "Aplicación web para gestionar tareas con funcionalidad de calendario, creación de tareas y visualización integrada. Tecnologías: Next.js, Tailwind CSS, shadcn.",
+      date: "jueves, 31 de Octubre de 2024",
+      image: "https://placehold.co/600x400?text=Gestion+de+Tareas",
+    },
+    {
+      title: "Sitio Web de Portafolio",
+      description:
+        "Diseñé y construí un sitio web de portafolio responsivo usando Next.js y Tailwind CSS",
+      date: "2022",
+      image: "https://placehold.co/600x400?text=Sitio+de+Portafolio",
+    },
+    {
+      title: "App Móvil UI/UX",
+      description:
+        "Creé diseños de interfaz de usuario para una aplicación móvil de seguimiento de fitness",
+      date: "2021",
+      image: "https://placehold.co/600x400?text=App+Móvil+UI/UX",
+    },
+  ];
+
+  const experiencias = [
+    {
+      title: "Desarrollador Web Senior",
+      company: "Tech Innovators Inc.",
+      date: "2021 - Actualidad",
+      description:
+        "Líder de desarrollo para aplicaciones web, mentor de desarrolladores junior e implementador de buenas prácticas.",
+    },
+    {
+      title: "Desarrollador Full Stack",
+      company: "Digital Solutions Ltd.",
+      date: "2018 - 2021",
+      description:
+        "Desarrollé y mantuve sitios web y aplicaciones web usando React, Node.js y MongoDB.",
+    },
+    {
+      title: "Desarrollador Web Junior",
+      company: "StartUp Ventures",
+      date: "2016 - 2018",
+      description:
+        "Asistí en el desarrollo de sitios web responsivos y gané experiencia en tecnologías front-end.",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div
+      className={`min-h-screen flex flex-col ${modoOscuro ? "dark" : ""} mx-40`}
+    >
+      <header className="sticky top-0 z-10 bg-background border-b">
+        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold">John Doe</h1>
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="icon" onClick={alternarModoOscuro}>
+              {modoOscuro ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+          </div>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <main className="flex-grow container mx-auto px-4 py-8">
+        {/* Sección "Sobre mí" */}
+        <section className="mb-12">
+          <div className="flex flex-col md:flex-row items-center gap-8">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              width={300}
+              height={300}
+              src="https://placehold.co/300x300?text=John+Doe"
+              alt="John Doe"
+              className="rounded-full w-64 h-64 object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Sobre Mí</h2>
+              <p className="text-lg mb-4">
+                Soy diseñador y desarrollador web con experiencia en la creación
+                de sitios web, funcionales y responsivos. Trabajo, para hacer
+                realidad las ideas a través del código.
+              </p>
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center">
+                  <Mail className="w-5 h-5 mr-2" />
+                  <span>djred@hexagono.xyz</span>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="w-5 h-5 mr-2" />
+                  <span>Buenos Aires, Argentina.</span>
+                </div>
+                <div className="flex items-center">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  <span>Disponible para trabajo freelance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección "Proyectos" */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Proyectos</h2>
+          <Timeline>
+            {proyectos.map((proyecto, index) => (
+              <TimelineItem key={index}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{proyecto.title}</CardTitle>
+                    <CardDescription>{proyecto.date}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image
+                      width={300}
+                      height={300}
+                      src={proyecto.image}
+                      alt={proyecto.title}
+                      className="w-full h-48 object-cover rounded-md mb-4"
+                    />
+                    <p>{proyecto.description}</p>
+                  </CardContent>
+                </Card>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        </section>
+
+        {/* Sección "Experiencia" */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Experiencia</h2>
+          <Timeline>
+            {experiencias.map((exp, index) => (
+              <TimelineItem key={index}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{exp.title}</CardTitle>
+                    <CardDescription>
+                      {exp.company} | {exp.date}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{exp.description}</p>
+                  </CardContent>
+                </Card>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        </section>
+
+        {/* Sección "Habilidades" */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Habilidades</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "TypeScript",
+              "React",
+              "Next.js",
+              "Node.js",
+              "Diseño UI/UX",
+            ].map((habilidad, index) => (
+              <Card key={index}>
+                <CardContent className="flex items-center justify-center h-24">
+                  <p className="text-lg font-semibold">{habilidad}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Sección "Contáctame" */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Contáctame</h2>
+          <Card>
+            <CardContent className="p-6">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-1"
+                    >
+                      Nombre
+                    </label>
+                    <Input id="name" placeholder="Tu Nombre" />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-1"
+                    >
+                      Correo Electrónico
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="tu@correo.com"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-1"
+                  >
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full p-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Tu mensaje aquí..."
+                  ></textarea>
+                </div>
+                <Button className="w-full">Enviar Mensaje</Button>
+              </form>
+            </CardContent>
+          </Card>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <Separator />
+      <footer className="bg-background py-4">
+        <div className="container mx-auto px-4 flex flex-col items-center space-y-2">
+          <div className="flex space-x-4">
+            <Link href="https://github.com/tuusuario" aria-label="GitHub">
+              <FaGithub className="w-6 h-6" />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/tuusuario"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="w-6 h-6" />
+            </Link>
+            <Link href="https://twitter.com/tuusuario" aria-label="Twitter">
+              <FaTwitter className="w-6 h-6" />
+            </Link>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} John Doe. Todos los derechos
+            reservados.
+          </p>
+        </div>
       </footer>
     </div>
   );

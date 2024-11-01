@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio de Diseñador y Desarrollador Web
 
-## Getting Started
+Este proyecto es un portafolio personal que muestra los proyectos, habilidades y experiencia de un diseñador y desarrollador web. Construido con **Next.js** y utilizando los componentes de **shadcn**, este portafolio está diseñado para ofrecer una experiencia visualmente atractiva y funcional, optimizada para mostrar trabajos creativos y técnicos.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Interfaz modular y reutilizable**: Construida con los componentes UI de shadcn, permite una arquitectura fácil de mantener y expandir.
+- **Rendimiento y optimización**: Implementado en Next.js para cargar páginas rápidamente y mejorar el SEO.
+- **Diseño adaptable**: La interfaz es completamente responsive, adaptándose a cualquier dispositivo, ya sea escritorio, tablet o móvil.
+- **Dark mode**: Incluye modo oscuro que se ajusta según la preferencia del usuario para una mejor experiencia de visualización.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: Framework de React para aplicaciones web rápidas y escalables.
+- **shadcn**: Biblioteca de componentes estilizados que permite una personalización avanzada y una apariencia profesional.
+- **Tailwind CSS**: Framework de CSS que facilita la creación de diseños atractivos y modernos de manera eficiente.
+- **TypeScript**: Mejora la fiabilidad y mantenimiento del código al utilizar tipado estático.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del Proyecto
 
-## Learn More
+- `/components`: Contiene todos los componentes reutilizables que se usan en varias páginas del portafolio.
 
-To learn more about Next.js, take a look at the following resources:
+- `/app`: Contiene la página principales del sitio.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/data`: Información sobre proyectos, habilidades y otros datos para facilitar la actualización del contenido.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/types`: Definición de tipos en TypeScript para mejorar la calidad y estructura del código.
 
-## Deploy on Vercel
+## Instalación y Ejecución
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clona el repositorio en tu máquina:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   ```
