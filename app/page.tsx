@@ -33,7 +33,6 @@ export default function Portfolio() {
       description:
         "Aplicación web para gestionar tareas con funcionalidad de calendario, creación de tareas y visualización integrada. Tecnologías: Next.js, Tailwind CSS, shadcn.",
       date: "jueves, 31 de Octubre de 2024",
-      // image: "https://placehold.co/600x400?text=Gestion+de+Tareas",
       image: "/gestion-de-tareas/uno.png",
     },
     {
@@ -82,20 +81,22 @@ export default function Portfolio() {
         modoOscuro ? "dark" : ""
       }  lg:mx-40`}
     >
-      <header className="sticky top-0 z-10 bg-background border-b">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Di corato Juan</h1>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" onClick={alternarModoOscuro}>
-              {modoOscuro ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
-        </nav>
-      </header>
+      <section className="flex justify-center mt-28">
+        <header className="fixed top-0 z-10 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md border rounded-lg px-4 mt-4 w-3/4 shadow-md">
+          <nav className="flex justify-between items-center py-4 mx-auto">
+            <h1 className="text-2xl font-bold">JR</h1>
+            <div className="flex items-center space-x-4">
+              <Button variant="ghost" size="icon" onClick={alternarModoOscuro}>
+                {modoOscuro ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
+          </nav>
+        </header>
+      </section>
 
       <main className="flex-grow container mx-auto px-4 py-8">
         {/* Sección "Sobre mí" */}
@@ -109,16 +110,16 @@ export default function Portfolio() {
               className="rounded-full w-64 h-64 object-cover"
             />
             <div>
-              <h2 className="text-3xl font-bold mb-4">Sobre Mí</h2>
+              <h2 className="text-3xl font-bold mb-4">Hola, soy Juan Rojo</h2>
               <p className="text-lg mb-4">
-                Soy diseñador y desarrollador web con experiencia en la creación
-                de sitios web, funcionales y responsivos. Trabajo, para hacer
-                realidad las ideas a través del código.
+                Diseñador y desarrollador web con experiencia en la creación de
+                sitios, funcionales y responsivos. Trabajo, para hacer realidad
+                las ideas a través del código.
               </p>
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 mr-2" />
-                  <span>djred@hexagono.xyz</span>
+                  <span>juanrojo@hexagono.xyz</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 mr-2" />
@@ -135,7 +136,7 @@ export default function Portfolio() {
 
         {/* Sección "Proyectos" */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">Proyectos</h2>
+          <h2 className="text-3xl font-bold mb-4">Proyectos realizados</h2>
           <Timeline>
             {proyectos.map((proyecto, index) => (
               <TimelineItem key={index}>
@@ -145,13 +146,16 @@ export default function Portfolio() {
                     <CardDescription>{proyecto.date}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Image
-                      width={1904}
-                      height={235}
-                      src={proyecto.image}
-                      alt={proyecto.title}
-                      className="object-cover rounded-sm mb-4"
-                    />
+                    <Link href={"/"}>
+                      <Image
+                        width={1904}
+                        height={235}
+                        src={proyecto.image}
+                        alt={proyecto.title}
+                        className="object-cover rounded-lg mb-4 border shadow-sm hover:shadow-md cursor-pointer"
+                      />{" "}
+                    </Link>
+
                     <p>{proyecto.description}</p>
                   </CardContent>
                 </Card>
@@ -184,7 +188,7 @@ export default function Portfolio() {
 
         {/* Sección "Habilidades" */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">Habilidades</h2>
+          <h2 className="text-3xl font-bold mb-4">Conocimientos</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               "HTML",
@@ -193,11 +197,11 @@ export default function Portfolio() {
               "TypeScript",
               "React",
               "Next.js",
-              "Node.js",
-              "Diseño UI/UX",
+              "Tailwind CSS",
+              "Shadcn/ui",
             ].map((habilidad, index) => (
               <Card key={index}>
-                <CardContent className="flex items-center justify-center h-24">
+                <CardContent className="flex items-center justify-center p-10">
                   <p className="text-lg font-semibold">{habilidad}</p>
                 </CardContent>
               </Card>
