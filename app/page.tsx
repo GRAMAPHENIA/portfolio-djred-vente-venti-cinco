@@ -278,7 +278,7 @@ export default function Portfolio() {
           </div>
           <p className="text-sm text-muted-foreground">
             Sitio creado con <span className="text-blue-400/90">Next.js </span>
-            por djp. Octubre de {new Date().getFullYear()}
+            por JR Octubre de {new Date().getFullYear()}
           </p>
         </div>
       </footer>
