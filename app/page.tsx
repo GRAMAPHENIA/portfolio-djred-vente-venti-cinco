@@ -188,7 +188,7 @@ export default function Portfolio() {
 
         {/* Sección "Habilidades" */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">Conocimientos</h2>
+          <h2 className="text-3xl font-bold mb-4">Conocimientos en:</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               "HTML",
@@ -198,7 +198,7 @@ export default function Portfolio() {
               "React",
               "Next.js",
               "Tailwind CSS",
-              "Shadcn/ui",
+              "Shadcn/UI",
             ].map((habilidad, index) => (
               <Card key={index}>
                 <CardContent className="flex items-center justify-center p-10">
